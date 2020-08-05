@@ -1,2 +1,12 @@
-<h1>App#profile</h1>
-<p>Find me in app/views/app/profile.html.erb</p>
+<div class="row">
+  <div class="col-lg-6 offset-lg-3">
+    <div class="row">
+      <div class="col-lg-4">
+        <%= image_tag current_user.avatar, class: "avatar mx-auto d-block" %>
+        <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+      </div>
+      <div class="col-lg-8">
+      </div>
+    </div>
+  </div>
+</div>
