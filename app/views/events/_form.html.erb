@@ -11,9 +11,21 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= form.text_field :name, placeholder: "Event name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :charity, placeholder: "Charity", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_area :description, placeholder: "Event description", class: "form-control" %>
+  </div>
+
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :category %>
+    <%= form.select :category, Event::CATEGORY_OPTIONS %>
   </div>
 
   <div class="field">
@@ -26,27 +38,7 @@
     <%= form.time_select :time %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.collection_select :category, Event::CATEGORY_OPTIONS %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :measurement %>
-    <%= form.text_field :measurement %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

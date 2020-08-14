@@ -3,14 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .row {
-  .col-lg-6 {
+  .col-lg-4 {
     .avatar {
       height: 25vh;
       width: auto;
       border-radius: 100%;
-    }
-    p {
-      text-align: center;
     }
   }
 }

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pledges
   resources :events
   devise_for :users
   root 'app#profile'

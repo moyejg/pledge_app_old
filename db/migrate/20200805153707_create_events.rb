@@ -8,7 +8,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :category
       t.boolean :completed, default: false
       t.decimal :amount, defualt: 0
-      t.string :measurement, default: ''
       t.integer :user_id
 
       t.timestamps

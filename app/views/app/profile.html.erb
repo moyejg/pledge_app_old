@@ -1,11 +1,42 @@
 <div class="row">
   <div class="col-lg-6 offset-lg-3">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 text-center">
         <%= image_tag current_user.avatar, class: "avatar mx-auto d-block" %>
         <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+        <%= link_to "New Event", new_event_path, class: "btn btn-primary" %>
       </div>
       <div class="col-lg-8">
+        <% current_user.events.each do |event| %>
+          <div class="card">
+            <div class="card-body">
+              <h1><%= event.name %></h1>
+              <p><%= event.category.capitalize %> on <%= event.date.strftime("%B, %-d") %> @ <%= event.time.strftime("%I:%M %P") %></p>
+              <P>Pledged donations will go to the <%= event.charity %>.</p>
+              <p><%= event.description %></p>
+              <%= link_to  "Pledge", new_pledge_path, event: event %> 
+                <% if event.category == 'run/walk' || event.type == 'bike' %>
+                per mile
+                <% else %>
+                  per hour
+                <% end %>
+              </p>
+            </div>
+            <% event.pledges.each do |pledge| %>
+              <div class="card">
+                <div class="card-body">
+                  <p><%= pledge.user.first_name %> <%= pledge.user.last_name %> has pledged <%= number_to_currency(pledge.amount) %>
+                  <% if event.category == 'run/walk' || event.type == 'bike' %>
+                  per mile
+                  <% else %>
+                    per hour
+                  <% end %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

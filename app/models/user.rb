@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :events
+  has_many :pledges
 end
